@@ -39,31 +39,58 @@
         <!-- end tentang layanan -->
 
         <!-- data pengaduan -->
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-            <h1 class="text-center mb-6 sm:mb-8 text-xl sm:text-2xl font-bold">Data Pengaduan</h1>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-4 lg:gap-8">
-                <div
-                    class="w-full sm:w-64 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform">
-                    <div class="text-center">
-                        <p class="text-3xl sm:text-4xl font-bold text-indigo-600">1334</p>
-                        <p class="mt-2 text-sm sm:text-md text-gray-700 uppercase tracking-wider">Total Laporan Masuk
-                        </p>
-                    </div>
+        <div class="py-4 sm:py-12">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8 sm:mb-12">
+                    <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">
+                        Data Pengaduan
+                    </h1>
+                    <p class="text-gray-600">Statistik laporan pengaduan terkini</p>
                 </div>
-                <div
-                    class="w-full sm:w-64 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform">
-                    <div class="text-center">
-                        <p class="text-3xl sm:text-4xl font-bold text-indigo-600">175</p>
-                        <p class="mt-2 text-sm sm:text-md text-gray-700 uppercase tracking-wider">Laporan yang
-                            Diselesaikan</p>
+
+                <div class="flex flex-col sm:flex-row justify-center items-stretch gap-6 max-w-4xl mx-auto">
+                    <div class="flex-1 group">
+                        <div
+                            class="h-full bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 p-8">
+                            <div class="text-center">
+                                <div
+                                    class="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-4">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                </div>
+                                <p class="text-5xl sm:text-4xl font-bold text-white mb-3">
+                                    {{ totalLaporan }}
+                                </p>
+                                <p class="text-lg text-indigo-100 font-medium uppercase tracking-wide">
+                                    Total Laporan Masuk
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div
-                    class="w-full sm:w-64 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform">
-                    <div class="text-center">
-                        <p class="text-3xl sm:text-4xl font-bold text-indigo-600">175</p>
-                        <p class="mt-2 text-sm sm:text-md text-gray-700 uppercase tracking-wider">Tingkat Kepuasan
-                            Pelapor</p>
+
+                    <div class="flex-1 group">
+                        <div
+                            class="h-full bg-gradient-to-br from-emerald-500 to-emerald-400 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 p-8">
+                            <div class="text-center">
+                                <div
+                                    class="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-4">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <p class="text-5xl sm:text-4xl font-bold text-white mb-3">
+
+                                </p>
+                                <p class="text-lg text-emerald-100 font-medium uppercase tracking-wide">
+                                    Laporan Diselesaikan
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -190,31 +217,45 @@
             </div>
         </div>
         <!-- end tautan cepat -->
-
-        <!-- footer -->
-        <footer
-            class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 py-5 px-4 sm:px-8 bg-slate-200 rounded-xl">
-            <div class="text-center sm:text-left">
-                <p class="text-sm sm:text-base">&copy; 2025 Laporan Layanan Pengaduan</p>
-            </div>
-            <div class="flex gap-4 sm:gap-8">
-                <a href="#" class="text-sm sm:text-base hover:text-indigo-600">Instagram</a>
-                <a href="#" class="text-sm sm:text-base hover:text-indigo-600">X</a>
-                <a href="#" class="text-sm sm:text-base hover:text-indigo-600">YouTube</a>
-            </div>
-        </footer>
-        <!-- footer -->
-
     </main>
+    <!-- footer -->
+    <footer class="container mx-auto flex items-center py-5 px-4 sm:px-8 bg-slate-200 rounded-xl">
+        <div class="text-center sm:text-left">
+            <p class="text-sm sm:text-base">&copy; 2025 Laporan Layanan Pengaduan</p>
+        </div>
+    </footer>
+    <!-- footer -->
 </template>
 
 <script>
 import Header from '../components/Header.vue'
-import { RouterLink } from 'vue-router';
+import { RouterLink } from 'vue-router'
+import { useReportStore } from '../stores/reportStore'
+import { mapState, mapActions } from 'pinia'
 
 export default {
+    computed: {
+        ...mapState(useReportStore, ['reports']),
+        // 2. Buat computed property untuk menghitung total
+        totalLaporan() {
+            return this.reports.length;
+        },
+
+        // 3. Buat computed property untuk menghitung laporan 'selesai'
+        laporanSelesaiCount() {
+            return this.reports.filter(report => report.status === 'selesai').length;
+        }
+    },
     components: {
         Header,
     },
+    methods: {
+        ...mapActions(useReportStore, ['fetchAllReports']),
+    },
+    mounted() {
+        // 5. Panggil action ini saat komponen dimuat!
+        // Ini akan mengisi state 'reports' dengan data.
+        this.fetchAllReports();
+    }
 }
 </script>

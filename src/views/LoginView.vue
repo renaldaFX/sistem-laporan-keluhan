@@ -16,7 +16,7 @@
                     <img src="../assets/pwa-192x192.png" class="w-20 sm:w-24" alt="">
                     <h1 class="inline text-2xl sm:text-3xl font-bold text-gray-800">Login</h1>
                 </div>
-                <p class="text-sm sm:text-base text-gray-500">Jawa Dilarang Login</p>
+                <p class="text-sm sm:text-base text-gray-500">Login dengan akun anda</p>
             </div>
 
             <div class="text-white text-center font-bold p-4 rounded mb-4" v-if="log_show_alert"

@@ -4,7 +4,7 @@
         <!-- Alert Success -->
         <Alert v-if="showAlert" :variant="alertVariant" :message="alertMessage" @close="hideAlert" />
 
-        <div class="p-6 bg-white border border-gray-200 mb-4 rounded">
+        <div class="p-6 bg-white border border-gray-200 mb-4 rounded-xl">
             <!-- Input file tersembunyi -->
             <input type="file" ref="fileInput" @change="upload($event)" accept="image/jpeg,image/jpg,image/png" multiple
                 class="hidden" />
@@ -156,8 +156,8 @@ export default {
     methods: {
         ...mapActions(storageStore, ['clearUploads']),
         ...mapActions(useReportStore, {
-            sendReportToStore: 'submitReport', // <-- Mengganti nama: store.submitReport -> this.sendReportToStore
-            fetchUserReports: 'fetchUserReports' // Ini tetap sama
+            sendReportToStore: 'submitReport',
+            fetchUserReports: 'fetchUserReports'
         }),
         upload($event) {
             this.is_dragover = false
@@ -165,12 +165,10 @@ export default {
             if (files.length > 0) {
                 const store = storageStore();
 
-                // Buat preview untuk setiap file
                 files.forEach(file => {
                     if (file.type.startsWith('image/')) {
                         const reader = new FileReader();
                         reader.onload = (e) => {
-                            // Cari upload yang sesuai dan tambahkan preview
                             const uploadItem = store.uploads.find(u => u.name === file.name);
                             if (uploadItem) {
                                 uploadItem.preview = e.target.result;
@@ -183,7 +181,7 @@ export default {
                 store.upload(files);
             }
 
-            // Reset input file agar bisa upload file yang sama lagi
+
             if ($event.target) {
                 $event.target.value = '';
             }
@@ -224,16 +222,12 @@ export default {
                 await this.sendReportToStore(finalReportData);
                 this.showSuccess('Laporan berhasil dikirim!');
 
-                // ... (reset form) ...
+                this.report_data.title = ''
+                this.report_data.address = ''
+                this.report_data.description = ''
 
-                // __________________________________
-                // 
-                // KODE YANG BENAR:
-                // Panggil actions yang sudah dipetakan ke 'this'
-                // 
                 this.clearUploads();
                 await this.fetchUserReports();
-                // __________________________________
             } catch (e) {
                 console.error("Error adding document: ", e);
                 this.showError('Gagal mengirim laporan. Silakan coba lagi.');

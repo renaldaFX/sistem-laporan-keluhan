@@ -162,10 +162,10 @@
 
         <!-- Rating Detail Modal -->
         <div v-if="showRatingModal" @click="closeRatingModal"
-            class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            class="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50 p-4">
             <div @click.stop class="bg-white rounded-xl shadow-2xl max-w-lg w-full overflow-hidden">
                 <!-- Header -->
-                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 px-6 py-4">
+                <div class="bg-gradient-to-r from-blue-500 to-sky-500 px-6 py-4">
                     <div class="flex justify-between items-center">
                         <h3 class="text-xl font-bold text-white">Detail Rating</h3>
                         <button @click="closeRatingModal" class="text-white hover:text-gray-200 transition">
