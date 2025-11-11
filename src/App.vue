@@ -4,18 +4,18 @@
 
 <script>
 import { RouterView } from 'vue-router';
-// import login from './components/Login.vue';
-import { mapStores } from 'pinia';
-import userModalStores from './stores/modal'
+import { mapWritableState } from 'pinia';
+import { auth } from './firebase/firebase'
+import { useUserStore } from './stores/user'
 
 export default {
-  data() {
-    return {
-      message: 'Hello World',
-    }
-  },
   computed: {
-    ...mapStores(userModalStores)
+    ...mapWritableState(useUserStore, ['userLoggedIn'])
+  },
+  created() {
+    if (auth.currentUser) {
+      this.userLoggedIn = true
+    }
   }
 }
 </script>
